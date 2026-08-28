@@ -1,4 +1,5 @@
 const searchBtn = document.querySelector("#searchBtn")
+const clearBtn = document.querySelector("#clearBtn")
 const url = "./travel_recommendation_api.json"
 const section = document.querySelector(".filter")
 const input = document.querySelector("#searchInput")
@@ -43,9 +44,6 @@ function filter() {
 }
 
 
-
-
-
 function show(key) {
     
     for (const item of key) {
@@ -56,15 +54,15 @@ function show(key) {
             <p>${item.description}</p>
         </article>`
 
-        input.value = ""
+        clean()
         section.innerHTML += html
         }
 }
 
-
-
-
-
+function clean() {
+    input.value = ""
+}
 
 
 searchBtn.addEventListener("click", filter)
+clearBtn.addEventListener("click", clean)
